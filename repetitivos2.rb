@@ -1,5 +1,5 @@
 =begin
- Un prestamista a realizado un préstamos a un cliente considerando la siguiente
+ Un prestamista a realizado un préstamo a un cliente considerando la siguiente
  regla: cada més le cobrará el 5% de interés sobre el monto total acumulado.
  Cuanto cobrará al final de los n meses de préstamo?
  Ejemplo:
@@ -15,24 +15,24 @@
  
 def calcularInteres(monto, meses)
    total  = monto
-   for i in 1..meses
+   for i in 1..meses #i=1
       total = total + total*0.05	  
    end
    return total 
  end
  
- puts calcularInteres(100, 3)
-
+ print "Interes:", calcularInteres(100, 3).round(2)
+ puts
 
 =begin
 	
-Calular la suma de las áreas de todos los círculos de radio r, esta suma no 
+Calcular la suma de las áreas de todos los círculos de radio r, esta suma no 
 debe ser mayor que 1000 unidades cuadradas.
 	
 =end
 
 def sumaAreasCirculos(radio)
-	suma = 0
+  suma = 0
   while(suma < 1000)
   	area = Math::PI * radio**2
   	suma = suma + area
@@ -40,7 +40,7 @@ def sumaAreasCirculos(radio)
   return suma
 end
 
-puts "Suma: #{sumaAreasCirculos(2)} "
+puts "Suma de areas de circulos: #{sumaAreasCirculos(2).round(2)} "
 
 =begin
   	Simular la suma de n lanzamientos de un dado
@@ -50,24 +50,26 @@ puts "Suma: #{sumaAreasCirculos(2)} "
 def sumaLanzamientos(n)
    suma = 0
    for i in 1..n
-   	  suma = suma + rand(1..6)
+   	  dado = rand(1..6)
+   	  #puts dado
+   	  suma = suma + dado
    end
    return suma
 end
-puts "Dados:#{sumaLanzamientos(3)}"
+puts "Dados Suma:#{sumaLanzamientos(3)}"
 
 =begin
 	 Se quiere simular el juego de dos jugadores
 	 Cuando le toca al primero este debe lanzar dos dados
 	 y si la suma es 12 o 11 gana 1 punto, termina de lanzar cuando
 	 le sale 2.
-	 A continuación deberá proceder a jugar el toro jugador con
+	 A continuación deberá proceder a jugar el otro jugador con
 	 las mismas reglas.
 	 Se piden mostrar el nombre del jugador que ganó o hubo empate.
 =end
 
 def quienGana(nombre1, nombre2)
-	 for i in 1..2
+	 for i in 1..2 # i=1 jugando el 1er jugador
 	 	puntaje = 0
 	 	while true
 	 	   	 lanzamiento = rand(1..12)
@@ -75,7 +77,7 @@ def quienGana(nombre1, nombre2)
 	 	   	 	puntaje = puntaje + 1
 	 	   	 end
 	 	   	 if lanzamiento==2
-	 	   	 	break
+	 	   	 	break #sale del while / for
 	 	   	 end
 	 	end
 	 	if i==1
